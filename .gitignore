@@ -1,0 +1,55 @@
+# Entorno virtual
+venvTE/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos temporales de usuario
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Archivos de configuración del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de test coverage
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+.pytest_cache/
+
+# Archivos de IDEs
+.vscode/
+.idea/
+
+# Archivos de Django
+*.log
+local_settings.py
+db.sqlite3
+/media
+/staticfiles
+
+# Archivos de migrations (opcional, si no los quieres versionar inicialmente)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Entornos de producción/deploy
+.env
+.env.*
+
+# Archivos creados por pip
+pip-log.txt
+
+# Archivos de compilación
+build/
+dist/
+*.egg-info/
+.eggs/

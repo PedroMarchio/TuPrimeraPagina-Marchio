@@ -1,0 +1,11 @@
+{% extends 'aplicacion1/index.html' %}
+
+{% block titulo %}
+<h1>Producto Creado</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>¡Producto "{{nombre}}" creado con éxito!</h1>
+    <p>Tu producto fue guardado correctamente en el sistema.</p>
+    <p>Cantidad: {{cantidad}} Precio: ${{precio}}</p>            
+{% endblock contenido %}
