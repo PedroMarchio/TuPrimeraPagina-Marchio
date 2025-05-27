@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime, random
 from .models import *
+from .forms import *
 
 # Create your views here.
 def inicio(request):
@@ -42,3 +43,23 @@ def nueva_pagina(request):
     producto = productos(nombre=nombre, precio=precio, cantidad=cantidad)
     producto.save()
     return render(request, "aplicacion1/nueva_pagina.html", {"nombre":nombre, "precio":precio, "cantidad":cantidad,})
+
+def clientes_web(request):
+    clientes = Clientes.objects.all()
+    return render(request, "aplicacion1/clientes.html", {"clientes":clientes})
+
+def clienteForm(request):
+    if request.method == "POST":
+        form = clientesForm(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data["nombre"]
+            apellido = form.cleaned_data["apellido"]
+            numeroContacto = form.cleaned_data["numeroContacto"]
+            correo = form.cleaned_data["correo"]
+            ciudad =form.cleaned_data["ciudad"]
+            cliente = Clientes(nombre=nombre, apellido=apellido, numeroContacto=numeroContacto, correo=correo, ciudad=ciudad)
+            cliente.save()
+            return render(request, "aplicacion1/clientes.html", {"clientes": cliente})
+    else:
+        form = clientesForm()
+    return render(request, "aplicacion1/curso_form.html", {"form": form})

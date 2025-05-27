@@ -1,0 +1,32 @@
+{% extends 'aplicacion1/index.html' %}
+
+{% block titulo %}
+<h1>Lista de cliente</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Numero de Contacto</th>
+            <th>Correo</th>
+            <th>Ciudad</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for c in cursos  %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.nombre }}</td>
+            <td>{{ c.apellido }}</td>
+            <td>{{ c.numeroContacto }}</td>
+            <td>{{ c.correo }}</td>
+            <td>{{ c.ciudad }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
