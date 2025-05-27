@@ -1,7 +1,7 @@
 {% extends 'aplicacion1/index.html' %}
 
 {% block titulo %}
-<h1>Lista de cliente</h1>
+<h1>Lista de productos</h1>
 {% endblock titulo %}
 
 {% block contenido %}
@@ -10,21 +10,17 @@
         <tr>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Numero de Contacto</th>
-            <th>Correo</th>
-            <th>Ciudad</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
         </tr>
     </thead>
     <tbody>
-    {% for c in clientes  %}
+    {% for c in productos  %}
         <tr>
             <td>{{ c.id }}</td>
             <td>{{ c.nombre }}</td>
-            <td>{{ c.apellido }}</td>
-            <td>{{ c.numeroContacto }}</td>
-            <td>{{ c.correo }}</td>
-            <td>{{ c.ciudad }}</td>
+            <td>{{ c.precio }}</td>
+            <td>{{ c.cantidad }}</td>
         </tr>
     {% endfor %}
     </tbody>
