@@ -59,4 +59,4 @@ dist/
 *.db
 
 # Archivos de medios subidos
-/media/
+media/
