@@ -1,0 +1,38 @@
+{% extends 'aplicacion1/index2.html' %}
+
+{% block contenido %}
+<button id="triggerModal" type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#registroModal">
+  Launch modal
+</button>
+
+<div class="modal fade show" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" style="display: block;" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form method="post">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h5 class="modal-title">Registrar nuevo usuario</h5>
+        </div>
+        <div class="modal-body">
+          {{ form.as_p }}
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">{{ error }}</div>
+          {% endfor %}
+        </div>
+        <div class="modal-footer justify-content-center">
+          <a href="{% url 'inicio' %}" class="btn btn-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-success">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.onload = function () {
+    const modal = new bootstrap.Modal(document.getElementById('registroModal'));
+    modal.show();
+  };
+</script>
+{% endblock contenido %}
+

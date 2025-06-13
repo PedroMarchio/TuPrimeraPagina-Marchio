@@ -1,0 +1,26 @@
+{% extends 'aplicacion1/index2.html' %}
+
+{% block contenido %}
+<div class="container my-5">
+    <h2 class="mb-4 text-center">Nuestros Productos</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for producto in productos %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                {% if producto.imagen %}
+                    <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+                {% else %}
+                    <img src="https://via.placeholder.com/300x200?text=Sin+Imagen" class="card-img-top" alt="Sin imagen">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                    <p class="card-text fw-bold text-primary">${{ producto.precio }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No hay productos disponibles.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock contenido %}

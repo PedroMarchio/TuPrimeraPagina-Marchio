@@ -1,0 +1,13 @@
+{% extends 'aplicacion1/index2.html' %}
+
+{% block contenido %}
+<div class="container mt-5">
+  <h2>Cambiar contraseña</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar nueva contraseña</button>
+    <a href="{% url 'inicio' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock contenido %}

@@ -1,0 +1,13 @@
+{% extends 'aplicacion1/index2.html' %}
+
+{% block titulo %}
+<h1>Formulario de nuevo producto</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{% endblock contenido %}

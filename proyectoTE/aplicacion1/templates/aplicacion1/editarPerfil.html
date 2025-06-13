@@ -1,0 +1,42 @@
+{% extends 'aplicacion1/index2.html' %}
+
+{% block contenido %}
+<button id="triggerModal" type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#editarPerfilModal">
+  Launch modal
+</button>
+
+<div class="modal fade show" id="editarPerfilModal" tabindex="-1" aria-labelledby="editarPerfilModalLabel" style="display: block;" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form method="post">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h5 class="modal-title">Editar perfil</h5>
+        </div>
+        <div class="modal-body">
+          {% for field in form %}
+            <div class="mb-3">
+              <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+              {{ field }}
+              {% if field.errors %}
+                <div class="text-danger small">{{ field.errors }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="modal-footer justify-content-center">
+          <a href="{% url 'inicio' %}" class="btn btn-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.onload = function () {
+    const modal = new bootstrap.Modal(document.getElementById('editarPerfilModal'));
+    modal.show();
+  };
+</script>
+{% endblock contenido %}

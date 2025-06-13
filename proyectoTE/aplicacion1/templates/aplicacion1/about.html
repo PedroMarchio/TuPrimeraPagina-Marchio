@@ -1,0 +1,27 @@
+{% extends 'aplicacion1/index2.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 border-0">
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <img src="{% static 'assets/img/Pedro.jpg' %}" alt="Pedro Marchio" class="rounded-circle" width="150" height="150">
+            </div>
+            <div class="col-md-9">
+                <h2 class="fw-bold mb-1">Pedro Marchio</h2>
+                <p class="text-muted">Desarrollador | Apasionado por la automatización y la IA</p>
+                <p class="mt-4 mb-5">
+                    Actualmente exploro tecnologías como <strong>Django</strong>, framework con el que desarrollé esta web. Además, tengo conocimientos en <strong>ciencia de datos</strong> y <strong>aprendizaje automático</strong>, y he llevado a cabo proyectos de I+D utilizando <strong>Roboflow</strong> para el etiquetado de datasets y el entrenamiento de modelos de detección con <strong>YOLOv9</strong>. En paralelo, me encuentro desarrollando <strong>agentes de inteligencia artificial</strong> mediante flujos automatizados con <strong>n8n</strong>.
+                </p>
+                <div class="mt-3 d-flex gap-2">
+                    <a href="{% url 'inicio' %}" class="btn btn-secondary">Volver al inicio</a>
+                    <a href="https://www.linkedin.com/in/pedro-marchio-70a19b282/" class="btn btn-outline-primary" target="_blank">
+                        Ver perfil en LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

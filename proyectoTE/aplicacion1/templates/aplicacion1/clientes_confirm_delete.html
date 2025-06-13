@@ -1,0 +1,43 @@
+{% extends 'aplicacion1/index2.html' %}
+
+{% block titulo %}
+<!-- Título oculto porque el modal lo incluye -->
+{% endblock titulo %}
+
+{% block contenido %}
+<!-- Botón invisible que dispara el modal al cargar -->
+<button id="triggerModal" type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#deleteModal">
+  Launch modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade show" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" style="display: block;" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form method="post">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Confirmar eliminación</h5>
+        </div>
+        <div class="modal-body text-center">
+          <p>¿Estás seguro de que deseas eliminar el producto?</p>
+          <p class="fw-bold text-danger">{{ object }}</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <a href="{% url 'clientes' %}" class="btn btn-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Script para lanzar el modal automáticamente -->
+<script>
+  window.onload = function () {
+    const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    modal.show();
+  };
+</script>
+{% endblock contenido %}
+
