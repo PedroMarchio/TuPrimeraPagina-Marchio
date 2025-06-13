@@ -51,4 +51,6 @@ Se utilizó herenciay navegación condicional según el tipo de usuario.
 El proyecto incluye validaciones de seguridad para que solo el staff acceda a vistas sensibles, me paresio lo mejor para evitar que solo escribiendo el link el usuario pueda aceder de todas formas.
 
 📫 Contacto
-Desarrollado por Pedro Marchio
+Desarrollado por Pedro Marchio 
+Tel: +543585070473
+Video: https://youtu.be/w-j9yIPMhMA
